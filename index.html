@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Automobile Dataset — Full Project Report & Interactive Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --muted:#475569;
+      --accent1:#0ea5a4;
+      --accent2:#7c3aed;
+      --faintblue:#3b82f6; /* Faint blue for section titles */
+    }
+
+    body {
+      font-family:Inter,system-ui,Helvetica,Arial;
+      margin:0;
+      background:var(--bg);
+      color:#0f172a;
+      line-height:1.45;
+    }
+
+    header {
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      padding:20px 24px;
+    }
+
+    .container {
+      max-width:1100px;
+      margin:20px auto;
+      padding:0 18px;
+    }
+
+    h1 { margin:0; font-size:20px; }
+    .card {
+      background:var(--card);
+      border-radius:10px;
+      padding:14px;
+      margin-bottom:14px;
+      box-shadow:0 6px 18px rgba(12,12,20,0.05);
+    }
+
+    /* Section Titles in Faint Blue */
+    section.card > strong {
+      color: var(--faintblue);
+    }
+
+    .small { font-size:13px; color:var(--muted); }
+    .flex { display:flex; gap:12px; align-items:center; }
+    .slicer { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:8px; }
+    button.sbtn {
+      padding:8px 12px;
+      border-radius:8px;
+      border:1px solid #e6eef7;
+      background:white;
+      cursor:pointer;
+    }
+    button.sbtn.active {
+      background:var(--accent2);
+      color:white;
+      border-color:var(--accent2);
+    }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    table { width:100%; border-collapse:collapse; margin-top:10px; font-size:14px; }
+    th, td { padding:8px; border-bottom:1px solid #eef2f7; text-align:left; }
+    .download {
+      background:var(--accent1);
+      color:white;
+      border:none;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    footer { font-size:13px; color:var(--muted); text-align:center; margin:18px; }
+
+    @media(max-width:900px){ .grid2{grid-template-columns:1fr} }
+
+    /* Certificate styles */
+    .cert-container {
+      background: white;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(12, 12, 20, 0.05);
+      color: #1e293b;
+      font-weight: 600;
+      text-align: center;
+      font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
+    }
+
+    .cert-title { font-size:28px; font-weight:700; margin-bottom:8px; color: var(--faintblue); }
+    .cert-subtitle { font-size:18px; margin-bottom:20px; color: var(--faintblue); }
+    .cert-project-name { font-size:20px; margin:15px 0 30px 0; color: var(--faintblue); }
+    .cert-text { font-weight:600; margin-bottom:15px; }
+    .cert-container table.student-table {
+      width:100%; border-collapse:collapse; margin-bottom:40px; color:#1e293b;
+    }
+    .cert-container table.student-table th,
+    .cert-container table.student-table td {
+      padding:10px 8px;
+      border:1px solid #ddd;
+      text-align:center;
+      font-weight:600;
+    }
+    .cert-container > strong { display:block; margin-bottom:12px; font-size:16px; }
+    .guide-name { font-size:18px; font-weight:600; margin-top:10px; color: var(--faintblue); }
+    .signatures {
+      display:flex;
+      justify-content:center;
+      gap:60px;
+      margin-top:40px;
+      flex-wrap:wrap;
+    }
+    .signature-block {
+      text-align:center;
+      font-weight:600;
+      font-size:14px;
+      color:#1e293b;
+      min-width:120px;
+    }
+    .signature-block span {
+      display:block;
+      width:140px;
+      margin:0 auto 10px auto;
+      border-bottom:1.5px solid #1e293b;
+      height:0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Automobile Dataset — Full Project Report & Interactive Dashboard</h1>
+      <div class="small">Complete microproject: analysis, visuals, methodology, insights, and certificate</div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <strong>Project Overview</strong>
+      <div class="small" style="margin-top:8px">
+        Objective: Explore and summarize automobile dataset characteristics.
+        Use Pivot Tables in Microsoft Excel to categorize and group data.
+        Apply Slicers to dynamically filter records for better interaction.
+        Build an interactive HTML dashboard for visualization.
+        Duration: 2 weeks.
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Introduction</strong>
+      <div class="small" style="margin-top:8px">
+        The automobile industry produces a vast range of vehicles with varying specifications such as fuel type, engine power, mileage, and cylinder count. Understanding these characteristics is crucial for analyzing performance, efficiency, and market trends. This project explores an automobile dataset to extract insights using Excel pivot tables, slicers, and an interactive HTML dashboard.
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Data Description</strong>
+      <div class="small" style="margin-top:8px">
+        The dataset <code>car_specs.csv</code> includes columns: Make, Fuel Type, Horsepower, Mileage, Number of Cylinders.
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Data Quality & Sources</strong>
+      <div class="small" style="margin-top:8px">
+        Demo dataset is synthetic; real datasets should validate sources, units, and handle outliers.
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Methodology</strong>
+      <div class="small" style="margin-top:8px">
+        Steps:
+        <ol>
+          <li><strong>Dataset Collection:</strong> Collected attributes like Make, Fuel Type, Horsepower, Mileage, Cylinders, Engine Size, and Price.</li>
+          <li><strong>Data Cleaning & Preparation:</strong> Handled missing/incorrect values and standardized units.</li>
+          <li><strong>Exploratory Data Analysis:</strong> Used Pivot Tables to summarize data by fuel type, cylinders, etc.</li>
+          <li><strong>Interactive Filtering:</strong> Applied slicers to filter by fuel type, cylinders, and year.</li>
+          <li><strong>Dashboard Development:</strong> Built HTML/JS dashboard using Chart.js for dynamic charts.</li>
+          <li><strong>Insight Generation:</strong> Compared performance and efficiency of traditional vs electric vehicles.</li>
+          <li><strong>Report Preparation:</strong> Compiled findings, visuals, and certificate.</li>
+          <li><strong>Timeline:</strong> Week 1: Cleaning, pivot tables; Week 2: Dashboard and report.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>The Story Behind the Numbers</strong>
+      <div class="small" style="margin-top:8px">
+        Engine design choices (more cylinders, higher horsepower) trade off with fuel efficiency. Electric drivetrains appear more efficient in MPG-equivalent. The dashboard compares traditional and electric vehicles side-by-side.
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Data Analysis & Key Findings</strong>
+      <div class="small" style="margin-top:8px">
+        Key observations:
+        <ul>
+          <li>Petrol vehicles dominate; electric vehicles show higher MPG-equivalent.</li>
+          <li>Higher horsepower often correlates with lower mileage.</li>
+          <li>4-cylinder cars balance performance and efficiency; 6+ cylinders reduce fuel efficiency.</li>
+          <li>Most cars range 20–35 MPG; electric vehicles are outliers.</li>
+          <li>Slicer analysis highlights efficiency trends by cylinders and fuel type.</li>
+          <li>Trade-offs exist between performance and efficiency, guiding consumer and designer decisions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Filter: Number of Cylinders</strong>
+      <div class="slicer" id="slicerButtons"></div>
+    </section>
+
+    <section class="card">
+      <strong>Visualization Gallery</strong>
+      <div class="small" style="margin-top:8px">Charts update when cylinder filter changes.</div>
+      <div class="grid2" style="margin-top:12px">
+        <div class="card"><div class="small">Average Mileage by Fuel Type</div><canvas id="avgMileageChart" height="220"></canvas></div>
+        <div class="card"><div class="small">Mileage Distribution by Cylinders (avg)</div><canvas id="mileageByCyl" height="220"></canvas></div>
+        <div class="card"><div class="small">HP vs Mileage (scatter)</div><canvas id="hpScatter" height="220"></canvas></div>
+        <div class="card"><div class="small">Count by Fuel Type</div><canvas id="countFuel" height="220"></canvas></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Pivot-style Table: Average Mileage by Fuel Type</strong>
+      <div class="small" style="margin-top:6px">Rows = Fuel Type; Values = Average(Mileage)</div>
+      <table id="pivotTable"><thead><tr><th>Fuel Type</th><th>Average Mileage</th></tr></thead><tbody></tbody></table>
+    </section>
+
+    <section class="card">
+      <strong>Key Statistical Insights</strong>
+      <ul class="small" id="keyStats"><li>—</li><li>—</li><li>—</li></ul>
+    </section>
+
+    <section class="card">
+      <strong>Data Table (sample)</strong>
+      <div style="max-height:260px;overflow:auto;margin-top:8px">
+        <table id="dataTable"><thead><tr><th>Make</th><th>Fuel Type</th><th>Horsepower</th><th>Mileage</th><th>Cylinders</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Conclusions & Key Insights</strong>
+      <ol class="small" id="conclusionsList"><li>—</li><li>—</li><li>—</li></ol>
+    </section>
+
+    <section class="card">
+      <strong>Implications for the Future</strong>
+      <div class="small" style="margin-top:8px">
+        Future studies should include emissions, cost-per-mile, and battery lifecycle impacts as electric vehicles become more common.
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Learning Outcomes</strong>
+      <ul class="small">
+        <li>Understand and build pivot tables.</li>
+        <li>Use slicers to filter datasets interactively.</li>
+        <li>Interpret statistics and visualize effectively.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <strong>References</strong>
+      <div class="small" style="margin-top:8px">
+        <ol>
+          <li>Example synthetic dataset (included).</li>
+          <li>Excel documentation: PivotTables & Slicers.</li>
+          <li>Manufacturer spec sheets and public vehicle databases.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Project Certificate: Interactive Data Exploration</strong>
+      <div class="cert-container">
+        <div class="cert-title">CERTIFICATE OF COMPLETION</div>
+        <div class="cert-subtitle">MICRO PROJECT REPORT</div>
+        <div class="cert-text">This is to certify that the Micro Project report On</div>
+        <div class="cert-project-name">Interactive Data Exploration (Automobile Dataset)</div>
+        <div class="cert-text" style="margin-bottom: 15px;">
+          Has successfully completed in <strong>Data Analytics (315326)</strong> course by the Student of Fifth Semester Diploma in IT for the Academic Year <strong>2025-26</strong> as per <strong>MSBTE K-Scheme</strong>.
+        </div>
+        <strong style="display: block; margin-bottom: 10px; font-size: 16px;">Submitted by</strong>
+        <table class="student-table">
+          <thead><tr><th>Sr. No.</th><th>Enrollment No.</th><th>Roll No.</th><th>Class</th><th>Name of the Student</th></tr></thead>
+          <tbody><tr><td>1</td><td>23212830510</td><td>3636</td><td>IF5K</td><td>Ms. Mashale Manjiri Malakari</td></tr></tbody>
+        </table>
+        <div style="margin-top: 40px; font-weight: 600; font-size: 16px; color: var(--faintblue);">Under the Guidance of</div>
+        <div class="guide-name">Mr. Akash Chatake (Subject Lecturer)</div>
+        <div class="signatures">
+          <div class="signature-block"><span></span>Mr. Akash S. Chatake<div class="guide-name">Guide</div></div>
+          <div class="signature-block"><span></span>Dr. Neeta S. Alange<div class="guide-name">HOD</div></div>
+          <div class="signature-block"><span></span>Prof. Dharane G.R.<div class="guide-name">Principal</div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="small card">Project Report & Interactive Dashboard</footer>
+
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
